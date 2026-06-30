@@ -1,14 +1,14 @@
-import { kv } from '@vercel/kv';
-
-// Wyniki w Vercel KV pod listą "results".
-// Każdy wpis to komplet ocen jednej trójki od jednego uczestnika:
-// MOS dla 3 grafik + ranking + metryczka uczestnika (doklejana do każdego wpisu).
+import { getDb } from './_db.js';
 
 export default async function handler(req, res) {
   try {
+    const db = await getDb();
+    const col = db.collection('results');
+
     if (req.method === 'GET') {
-      const raw = await kv.lrange('results', 0, -1);
-      const results = (raw || []).map((r) => (typeof r === 'string' ? JSON.parse(r) : r));
+      const results = await col.find({}, { projection: { _id: 0 } })
+        .sort({ savedAt: 1 })
+        .toArray();
       res.status(200).json({ count: results.length, results });
       return;
     }
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         res.status(400).json({ error: 'Wymagane pola: taskId, rater, scores, ranking' });
         return;
       }
-      const entry = {
+      const doc = {
         type: b.type || 'evaluation',
         taskId: b.taskId,
         rater: b.rater,
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         ranking: b.ranking,
         savedAt: new Date().toISOString(),
       };
-      await kv.rpush('results', JSON.stringify(entry));
+      await col.insertOne(doc);
       res.status(200).json({ ok: true });
       return;
     }

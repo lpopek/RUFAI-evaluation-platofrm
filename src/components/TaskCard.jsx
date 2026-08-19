@@ -39,7 +39,7 @@ export default function TaskCard({ t, lang, task, index, total, busy, onSubmit, 
 
       <div className="prompt-card">
         <div className="label">{t.promptLabel}</div>
-        <div className="prompt-text">{task.prompt[lang]}</div>
+        <div className="prompt-text">{typeof task.prompt === 'string' ? task.prompt : (task.prompt?.[lang] ?? task.prompt?.en ?? '')}</div>
       </div>
 
       <div className="section-label">{t.sec1}</div>

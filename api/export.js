@@ -33,6 +33,7 @@ export default async function handler(req, res) {
     const rows = [];
     for (const d of docs) {
       const base = {
+        submissionId: d.submissionId ?? '',
         type: d.type,
         taskId: d.taskId,
         rater: d.rater,

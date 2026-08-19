@@ -16,7 +16,7 @@ function shuffle(arr) {
 }
 
 export default function App() {
-  const [lang, setLang] = useState('pl')
+  const lang = 'en'  // tylko angielski
   const [screen, setScreen] = useState('loading') // loading | intro | demo | task | done | error
   const [tasks, setTasks] = useState([])
   const [participant, setParticipant] = useState(null)
@@ -98,7 +98,7 @@ export default function App() {
 
   const wrap = (child) => (
     <div className="page">
-      <Header t={t} lang={lang} setLang={setLang} />
+      <Header t={t} />
       <div className="app">{child}</div>
     </div>
   )

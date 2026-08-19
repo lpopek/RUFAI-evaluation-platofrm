@@ -200,3 +200,20 @@ h1 { font-size: 24px; margin: 0 0 16px; letter-spacing: -0.01em; }
 /* ── Done ── */
 .done { text-align: center; padding: 60px 0; }
 .done-check { font-size: 40px; margin-bottom: 12px; color: var(--good); }
+
+/* NOWE — karty zaznaczalne (dopasowanie do promptu + chęć posiadania) */
+.card.selectable { cursor: pointer; transition: border-color 0.12s, box-shadow 0.12s; }
+.card.selectable:hover { border-color: var(--accent); }
+.card.selectable.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent) inset;
+}
+.choice-btn {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px; border-radius: 8px; cursor: pointer; font-size: 13px;
+  font-weight: 600;
+}
+.choice-btn.assigned { background: var(--accent); border-color: var(--accent); color: #fff; }

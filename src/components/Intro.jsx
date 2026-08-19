@@ -10,6 +10,8 @@ export default function Intro({ t, onNext }) {
         <ol>
           <li><strong>{t.introLi1a}</strong>{t.introLi1b}</li>
           <li><strong>{t.introLi2a}</strong>{t.introLi2b}</li>
+          <li><strong>{t.introLi3a}</strong>{t.introLi3b}</li>
+          <li><strong>{t.introLi4a}</strong>{t.introLi4b}</li>
         </ol>
         <p>{t.introP3a}<strong>{t.introP3b}</strong>{t.introP3c}</p>
         <p className="muted small" style={{ marginBottom: 0 }}>{t.introNote}</p>

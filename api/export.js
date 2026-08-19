@@ -44,7 +44,14 @@ export default async function handler(req, res) {
         savedAt: d.savedAt,
       };
       for (const [imgId, mos] of Object.entries(d.scores || {})) {
-        rows.push({ ...base, imgId, mos, rank: d.ranking?.[imgId] ?? '' });
+        rows.push({
+          ...base,
+          imgId,
+          mos,
+          rank: d.ranking?.[imgId] ?? '',
+          isPromptMatch: d.promptMatch === imgId ? 1 : 0,
+          isWouldBuy: d.wouldBuy === imgId ? 1 : 0,
+        });
       }
     }
 

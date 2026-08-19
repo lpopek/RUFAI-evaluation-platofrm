@@ -56,6 +56,8 @@ export default function App() {
       lang,
       scores: entry.scores,
       ranking: entry.ranking,
+      promptMatch: entry.promptMatch ?? null,
+      wouldBuy: entry.wouldBuy ?? null,
     }
     const res = await fetch('/api/results', {
       method: 'POST',

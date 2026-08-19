@@ -28,6 +28,8 @@ export default async function handler(req, res) {
         lang: b.lang || null,
         scores: b.scores,
         ranking: b.ranking,
+        promptMatch: b.promptMatch ?? null,
+        wouldBuy: b.wouldBuy ?? null,
         savedAt: new Date().toISOString(),
       };
       await col.insertOne(doc);

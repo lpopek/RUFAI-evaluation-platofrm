@@ -2,7 +2,7 @@ import React from 'react'
 
 export const T = {
   en: {
-    headerTitle: 'Study within an industrial PhD project on AI-generated imagery',
+    headerTitle: 'Study within an industrial Phd project on AI-generated textures',
     headerSub: 'Warsaw University of Technology · Research Network — Rafał Perz',
     loading: 'Loading…',
     loadErr: 'Failed to load tasks. Refresh the page or try again later.',
@@ -17,7 +17,6 @@ export const T = {
     introNote: 'Participation is voluntary and anonymous. Results will be used for scientific purposes only.',
     next: 'Next →',
     demoH: 'Participant questionnaire',
-    nick: 'Nickname / identifier', nickPh: 'e.g. participant_07',
     age: 'Age', agePh: 'e.g. 28',
     gender: 'Gender', pick: '— select —', gK: 'Female', gM: 'Male', gI: 'Other', gN: 'Prefer not to say',
     exp: 'Experience with AI-generated imagery', expBrak: 'No experience', expPod: 'Basic', expSr: 'Intermediate', expEks: 'Expert',
